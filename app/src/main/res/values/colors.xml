@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <!--    main color palette-->
+    <color name="theme_yellow">#F5BC5F</color>
+    <color name="theme_green">#4DA19D</color>
+    <color name="theme_red">#F86F69</color>
+    <color name="theme_dark_200">#390536</color>
+    <color name="theme_dark_500">#250423</color>
+    <color name="theme_light">#AEB6BD</color>
+
+    <!--    secondary color palettes-->
+    <color name="blue_500">#7380A8</color>
+    <color name="blue_700">#2B426D</color>
+    <color name="blue_50">#AFD1DC</color>
+    <color name="orange_200">#EE9C7A</color>
+    <color name="orange_700">#CE8171</color>
+
+    <!--    fancy color palette-->
+    <color name="hot_pink">#EF7C8E</color>
+    <color name="cream">#FAE8E0</color>
+    <color name="spearmint">#B6E2D3</color>
+    <color name="rosewater">#D8A7B1</color>
+
+<!--    others-->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+
 </resources>
