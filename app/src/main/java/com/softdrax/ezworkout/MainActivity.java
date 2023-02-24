@@ -5,35 +5,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Adapter;
-import android.widget.TextView;
-
 import com.google.android.material.navigation.NavigationBarView;
-import com.softdrax.ezworkout.api.AppUtilities;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.softdrax.ezworkout.adapter.MainActivityAdapter;
 import com.softdrax.ezworkout.databinding.ActivityMainBinding;
-import com.softdrax.ezworkout.model.Exercise;
+import com.softdrax.ezworkout.model.ExerciseModel;
 
 import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-
-    TextView tvMainListExerciseData;
-
-    ArrayList<Exercise> exerciseArrayList;
-    private RecyclerView recyclerViewOfMain;
-    MainActivityAdapter adapter;
-
+    RecyclerView recyclerViewMain;
+    DatabaseReference databaseReference;
+    MainActivityAdapter mainActivityAdapter;
+    ArrayList<ExerciseModel> exerciseModels;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,34 +71,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        recyclerViewOfMain=findViewById(R.id.rvMain);
-        exerciseArrayList=new ArrayList<>();
-        recyclerViewOfMain.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        adapter =new MainActivityAdapter(MainActivity.this,exerciseArrayList);
-        recyclerViewOfMain.setAdapter(adapter);
-        getExercise();
 
-    }
+        recyclerViewMain=findViewById(R.id.rvMain);
 
-    private void getExercise() {
-        AppUtilities.getApiInterface().getExercise().enqueue(new Callback<Exercise>() {
+        databaseReference= FirebaseDatabase.getInstance().getReference("exercises");
+        recyclerViewMain.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+        exerciseModels=new ArrayList<>();
+        mainActivityAdapter=new MainActivityAdapter(MainActivity.this,exerciseModels);
+        recyclerViewMain.setAdapter(mainActivityAdapter);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onResponse(Call<Exercise> call, Response<Exercise> response) {
-               if (response.isSuccessful()){
-                   exerciseArrayList.addAll(response.body().getArrayExercise());
-                   adapter.notifyDataSetChanged();
-                   for (int i=0;i<exerciseArrayList.size();i++){
-
-                   }
-               }
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    ExerciseModel exerciseModel=dataSnapshot.getValue(ExerciseModel.class);
+                    exerciseModels.add(exerciseModel);
+                }
+                mainActivityAdapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onFailure(Call<Exercise> call, Throwable t) {
-
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("DATABASE_ERROR","error");
+                System.out.println("error is"+error);
             }
         });
+
     }
+
 
 
 }

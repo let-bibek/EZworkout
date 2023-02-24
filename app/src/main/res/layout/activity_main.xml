@@ -196,13 +196,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingTop="50dp">
-
                     <TextView
-                        android:id="@+id/tvExData"
+                        android:id="@+id/tvnjsdncs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="hello worl"
-                        android:textColor="@color/black" />
+                        />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvMain"
