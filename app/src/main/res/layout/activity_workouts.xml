@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.WorkoutsActivity">
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnvBottomNav"
-        android:layout_width="wrap_content"
+    tools:context=".WorkoutsActivity">
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:itemIconTint="@color/theme_light_700"
-        app:itemTextColor="@color/theme_light_700"
-        app:labelVisibilityMode="labeled"
+        android:text="advice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_items" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
