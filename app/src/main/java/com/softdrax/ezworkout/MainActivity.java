@@ -6,70 +6,56 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.softdrax.ezworkout.databinding.ActivityMainBinding;
+import com.softdrax.ezworkout.AdviceActivity;
+import com.softdrax.ezworkout.DietsActivity;
+import com.softdrax.ezworkout.OthersActivity;
+import com.softdrax.ezworkout.RoutineActivity;
+import com.softdrax.ezworkout.WorkoutsActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String ROOT_FRAGMENT_TAG = "root_fragment";
     BottomNavigationView bnvBottomNav;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        bnvBottomNav = findViewById(R.id.bnvBottomNav);
-//        default fragment
-        loadFragment(new WorkoutsFragment(), 0);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        bnvBottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+//        activity switching
+
+        binding.bnvBottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                get id of current selected item
                 int id = item.getItemId();
                 if (id == R.id.menu_item_workouts) {
-                    Fragment fragment = new WorkoutsFragment();
-                    loadFragment(fragment, 0);
+                    startActivity(new Intent(MainActivity.this, WorkoutsActivity.class));
                 } else if (id == R.id.menu_item_diet) {
-                    Fragment fragment = new DietsFragment();
-                    loadFragment(fragment, 1);
+                    startActivity(new Intent(MainActivity.this, DietsActivity.class));
+
                 } else if (id == R.id.menu_item_advice) {
-                    Fragment fragment = new AdviceFragment();
-                    loadFragment(fragment, 1);
+                    startActivity(new Intent(MainActivity.this, AdviceActivity.class));
+
                 } else if (id == R.id.menu_item_workout_routine) {
-                    Fragment fragment = new RoutineFragment();
-                    loadFragment(fragment, 1);
+                    startActivity(new Intent(MainActivity.this, RoutineActivity.class));
+
                 } else {
-                    loadFragment(new OthersFragment(), 1);
+                    startActivity(new Intent(MainActivity.this, OthersActivity.class));
+
                 }
-                return true;
+                return false;
             }
         });
+
     }
 
-    private void loadFragment(Fragment fragment, int flag) {
 
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-
-        //        data passing in fragment
-
-//        Bundle bundle=new Bundle();
-//        bundle.putString("fragment","This is data passed using fragment");
-//        bundle.putInt("arg1",52);
-//        fragment.setArguments(bundle);
-
-        if (flag == 0) {
-            ft.add(R.id.flBottomNav, fragment);
-            fm.popBackStack(ROOT_FRAGMENT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            ft.addToBackStack(ROOT_FRAGMENT_TAG);
-        } else {
-            ft.replace(R.id.flBottomNav, fragment);
-            ft.addToBackStack(null);
-        }
-        ft.commit();
-    }
 }

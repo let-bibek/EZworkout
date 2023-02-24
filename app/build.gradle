@@ -26,6 +26,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures{
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -48,6 +51,14 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+
+//    okhttp
+    // define a BOM and its version
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
+
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
 
     //Room database
     def room_version = "2.5.0"
