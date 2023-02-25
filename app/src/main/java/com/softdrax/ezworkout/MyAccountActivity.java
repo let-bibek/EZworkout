@@ -1,12 +1,14 @@
 package com.softdrax.ezworkout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +32,14 @@ public class MyAccountActivity extends AppCompatActivity {
                 signOutUser();
             }
         });
+
+        GoogleSignInAccount account=GoogleSignIn.getLastSignedInAccount(MyAccountActivity.this);
+
+        if (account!=null){
+            String userName=account.getDisplayName();
+            String userEmail= account.getEmail();
+            Uri imageUri=account.getPhotoUrl();
+        }
 
 
     }

@@ -115,8 +115,6 @@ public class MainActivity extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(MainActivity.this);
         if (account != null) {
             String userName = account.getDisplayName();
-            String userEmail = account.getEmail();
-            Uri imgUrl = account.getPhotoUrl();
             tvUsername.setText(userName);
         }
 
