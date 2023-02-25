@@ -10,4 +10,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="appwelcome">Welcome to the Fitness world</string>
+    <string name="workoutsDetails">Workouts Deatail</string>
+    <string name="Favourites">Favourites</string>
+    <string name="myAccount">My account</string>
+    <string name="loading">Loading...</string>
+    <string name="exerciseAdditionInfo">Additional Info</string>
+    <string name="exType">Type</string>
+    <string name="exMuscle">Muscle</string>
+    <string name="exDifficulty">Difficulty</string>
+    <string name="exEquipment">Equipment</string>
+    <string name="exInstruction">Exercise Instruction</string>
 </resources>

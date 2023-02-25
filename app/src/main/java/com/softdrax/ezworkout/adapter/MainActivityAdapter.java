@@ -44,6 +44,12 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
             public void onClick(View v) {
                 Intent intent=new Intent(context, ExerciseDetails.class);
                 intent.putExtra("name",exerciseModels.get(position).getName());
+                intent.putExtra("type",exerciseModels.get(position).getType());
+                intent.putExtra("difficulty",exerciseModels.get(position).getDifficulty());
+                intent.putExtra("muscle",exerciseModels.get(position).getMuscle());
+                intent.putExtra("equipment",exerciseModels.get(position).getEquipment());
+                intent.putExtra("instructions",exerciseModels.get(position).getInstructions());
+
                 context.startActivity(intent);
             }
         });

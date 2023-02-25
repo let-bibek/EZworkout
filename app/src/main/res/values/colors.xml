@@ -2,7 +2,7 @@
 <resources>
 
     <!--    main color palette-->
-    <color name="theme_yellow">#F5BC5F</color>
+    <color name="theme_yellow">#EF6C00</color>
     <color name="theme_green">#4DA19D</color>
     <color name="theme_red">#F86F69</color>
     <color name="theme_dark_200">#390536</color>
