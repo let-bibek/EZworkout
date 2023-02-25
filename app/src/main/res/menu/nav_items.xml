@@ -8,13 +8,13 @@
         android:icon="@drawable/diet_plan"
         android:title="@string/menu_item_diets"
         />
-    <item android:id="@+id/menu_item_advice"
-        android:icon="@drawable/workout_advice"
-        android:title="@string/menu_item_advice"
-        />
     <item android:id="@+id/menu_item_workout_routine"
         android:icon="@drawable/workout_routine"
         android:title="@string/menu_item_workout_routine"
+        />
+    <item android:id="@+id/menu_item_advice"
+        android:icon="@drawable/user_profile"
+        android:title="@string/menu_item_my_account"
         />
     <item android:id="@+id/menu_item_other_services"
         android:icon="@drawable/other_services"

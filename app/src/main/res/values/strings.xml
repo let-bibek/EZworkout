@@ -9,7 +9,7 @@
     <string name="menu_item_other_services">services</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="appwelcome">Welcome to the Fitness world</string>
+    <string name="appwelcome">Welcome to the community, let\'s crush those fitness goals together!</string>
     <string name="workoutsDetails">Workouts Deatail</string>
     <string name="Favourites">Favourites</string>
     <string name="myAccount">My account</string>
@@ -20,4 +20,7 @@
     <string name="exDifficulty">Difficulty</string>
     <string name="exEquipment">Equipment</string>
     <string name="exInstruction">Exercise Instruction</string>
+    <string name="exerciseList">Exercise List</string>
+    <string name="user">Bibek</string>
+    <string name="menu_item_my_account">Account</string>
 </resources>

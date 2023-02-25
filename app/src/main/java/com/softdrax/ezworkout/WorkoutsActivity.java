@@ -1,4 +1,5 @@
 package com.softdrax.ezworkout;
+
 import android.os.Bundle;
 import android.util.Log;
 
@@ -24,27 +25,28 @@ public class WorkoutsActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     MainActivityAdapter mainActivityAdapter;
     ArrayList<ExerciseModel> exerciseModels;
-ActivityWorkoutsBinding binding;
+    ActivityWorkoutsBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityWorkoutsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        recyclerViewMain=findViewById(R.id.rvMain);
+        recyclerViewMain = findViewById(R.id.rvMain);
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("exercises");
+        databaseReference = FirebaseDatabase.getInstance().getReference("exercises");
         recyclerViewMain.setLayoutManager(new LinearLayoutManager(WorkoutsActivity.this));
 
-        exerciseModels=new ArrayList<>();
-        mainActivityAdapter=new MainActivityAdapter(WorkoutsActivity.this,exerciseModels);
+        exerciseModels = new ArrayList<>();
+        mainActivityAdapter = new MainActivityAdapter(WorkoutsActivity.this, exerciseModels);
         recyclerViewMain.setAdapter(mainActivityAdapter);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
-                    ExerciseModel exerciseModel=dataSnapshot.getValue(ExerciseModel.class);
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    ExerciseModel exerciseModel = dataSnapshot.getValue(ExerciseModel.class);
                     exerciseModels.add(exerciseModel);
                 }
                 mainActivityAdapter.notifyDataSetChanged();
@@ -52,11 +54,10 @@ ActivityWorkoutsBinding binding;
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("DATABASE_ERROR","error");
-                System.out.println("error is"+error);
+                Log.e("DATABASE_ERROR", "error");
+                System.out.println("error is" + error);
             }
         });
-
 
 
     }

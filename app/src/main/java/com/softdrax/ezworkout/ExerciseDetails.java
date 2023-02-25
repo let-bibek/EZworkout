@@ -79,6 +79,8 @@ public class ExerciseDetails extends AppCompatActivity {
         } else if (itemId == R.id.menu_item_myAccount) {
             Toast.makeText(this, "Please login", Toast.LENGTH_SHORT).show();
 
+        } else {
+            startActivity(new Intent(ExerciseDetails.this, WorkoutsActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

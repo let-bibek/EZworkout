@@ -14,8 +14,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bnvBottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,27 +27,54 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@color/theme_red"
-                android:orientation="vertical"
-                android:padding="22dp">
+                android:layout_height="250dp"
+                android:background="@color/blue_700"
+                android:orientation="horizontal"
+                android:padding="22dp"
+                android:paddingTop="20dp"
+                >
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/custom_font_header"
-                    android:text="Hello Fitness freak"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:orientation="vertical"
+                    >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/custom_font_header"
-                    android:text="@string/appwelcome"
-                    android:textColor="@color/white"
-                    android:textSize="24sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Hi, "
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tvUsername"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/user"
+                            android:textStyle="italic"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/appwelcome"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -178,9 +204,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
                 android:layout_marginBottom="50dp"
-                >
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -191,11 +216,11 @@
                     android:textSize="24dp"
                     android:textStyle="bold" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_marginTop="50dp"
-                        android:id="@+id/rvMain"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp" />
 
             </RelativeLayout>
 
