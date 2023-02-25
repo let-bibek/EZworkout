@@ -23,4 +23,9 @@
     <string name="exerciseList">Exercise List</string>
     <string name="user">Bibek</string>
     <string name="menu_item_my_account">Account</string>
+    <string name="exerciseLevel">Level:5</string>
+    <string name="catPowerLifting">Powerlifting</string>
+    <string name="catStretching">Stretching</string>
+    <string name="catStrongman">Strongman</string>
+    <string name="catStrength">Strength</string>
 </resources>

@@ -91,6 +91,7 @@
                     android:columnCount="2">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cvPowerlifting"
                         android:layout_width="200dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
@@ -107,13 +108,75 @@
                             <ImageView
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
-                                android:src="@drawable/blob" />
+                                android:src="@drawable/powerlifting" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/app_name"
-                                android:textColor="@color/theme_dark_500" />
+                                android:text="@string/catPowerLifting"
+                                android:textColor="@color/theme_yellow"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/poppins_regular" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvStretching"
+                        android:layout_width="200dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="7dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/stretching" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/catStretching"
+                                android:textColor="@color/theme_yellow"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/poppins_regular" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvStrongman"
+                        android:layout_width="200dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="7dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/strongman" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/catStrongman"
+                                android:textColor="@color/theme_yellow"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/poppins_regular" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -123,7 +186,9 @@
                         android:layout_gravity="center"
                         android:elevation="10dp"
                         app:cardCornerRadius="7dp"
-                        app:cardUseCompatPadding="true">
+                        app:cardUseCompatPadding="true"
+                        android:id="@+id/cvStrength"
+                        >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -134,67 +199,17 @@
                             <ImageView
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
-                                android:src="@drawable/blob" />
+                                android:src="@drawable/strength" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/app_name"
-                                android:textColor="@color/theme_dark_500" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                                android:text="@string/catStrength"
+                                android:textColor="@color/theme_yellow"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/poppins_regular"
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center"
-                        android:elevation="10dp"
-                        app:cardCornerRadius="7dp"
-                        app:cardUseCompatPadding="true">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/blob" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/app_name"
-                                android:textColor="@color/theme_dark_500" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center"
-                        android:elevation="10dp"
-                        app:cardCornerRadius="7dp"
-                        app:cardUseCompatPadding="true">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/blob" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/app_name"
-                                android:textColor="@color/theme_dark_500" />
+                                />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>

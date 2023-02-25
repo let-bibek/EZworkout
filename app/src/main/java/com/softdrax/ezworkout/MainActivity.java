@@ -2,6 +2,7 @@ package com.softdrax.ezworkout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     TextView tvUsername;
     private long pressedTime;
+    CardView cvPowerlifting,cvStretching,cvStrongman,cvStrength;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +120,45 @@ public class MainActivity extends AppCompatActivity {
             String userName = account.getDisplayName();
             tvUsername.setText(userName);
         }
+
+        findViewById(R.id.cvPowerlifting).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,CategoryActivity.class);
+                intent.putExtra("category", "powerlifting");
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.cvStrength).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,CategoryActivity.class);
+                intent.putExtra("category","strength");
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.cvStretching).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,CategoryActivity.class);
+                intent.putExtra("category","stretching");
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.cvStrongman).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,CategoryActivity.class);
+                intent.putExtra("category","strongman");
+                startActivity(intent);
+            }
+        });
+
+
+
 
     }
 
