@@ -1,5 +1,4 @@
 package com.softdrax.ezworkout.adapter;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -9,21 +8,26 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.softdrax.ezworkout.ExerciseDetails;
 import com.softdrax.ezworkout.R;
 import com.softdrax.ezworkout.model.ExerciseModel;
-
 import java.util.ArrayList;
+
 
 public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapter.ViewHolder> {
     Context context;
     ArrayList<ExerciseModel> exerciseModels;
     private int lastPos = -1;
+
+
+    public void setFilteredList(ArrayList<ExerciseModel> filteredList){
+        this.exerciseModels=filteredList;
+        notifyDataSetChanged();
+
+    }
 
     public MainActivityAdapter(Context context, ArrayList<ExerciseModel> exerciseModels) {
         this.context = context;

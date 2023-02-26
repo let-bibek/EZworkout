@@ -2,9 +2,15 @@ package com.softdrax.ezworkout;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +32,7 @@ public class WorkoutsActivity extends AppCompatActivity {
     MainActivityAdapter mainActivityAdapter;
     ArrayList<ExerciseModel> exerciseModels;
     ActivityWorkoutsBinding binding;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +41,8 @@ public class WorkoutsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         recyclerViewMain = findViewById(R.id.rvMain);
-
+        searchView = findViewById(R.id.svExercise);
+        searchView.clearFocus();
         databaseReference = FirebaseDatabase.getInstance().getReference("exercises");
         recyclerViewMain.setLayoutManager(new LinearLayoutManager(WorkoutsActivity.this));
 
@@ -60,5 +68,42 @@ public class WorkoutsActivity extends AppCompatActivity {
         });
 
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
+
+
+    }
+
+    private void filterList(String newText) {
+        ArrayList<ExerciseModel> filteredText = new ArrayList<>();
+        for (ExerciseModel itemList : exerciseModels) {
+            if (itemList.getName().toLowerCase().contains(newText.toLowerCase())) {
+                filteredText.add(itemList);
+            }
+        }
+
+        if (filteredText.isEmpty()) {
+            Toast toast = new Toast(getApplicationContext());
+            View getToastView = getLayoutInflater()
+                    .inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toastViewGroup));
+            toast.setView(getToastView);
+            TextView tvMessage = getToastView.findViewById(R.id.tvToastWarning);
+            tvMessage.setText("No ecercise found");
+            toast.setDuration(Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, -100);
+            toast.show();
+        } else {
+            mainActivityAdapter.setFilteredList(filteredText);
+        }
     }
 }
