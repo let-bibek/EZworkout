@@ -18,12 +18,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.softdrax.ezworkout.adapter.MainActivityAdapter;
 import com.softdrax.ezworkout.databinding.ActivityMainBinding;
 import com.softdrax.ezworkout.model.ExerciseModel;
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvUsername;
     private long pressedTime;
     ShimmerFrameLayout shimmerFrameLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //        shimmer effect
-        shimmerFrameLayout=findViewById(R.id.rvShimmer);
+        shimmerFrameLayout = findViewById(R.id.rvShimmer);
         shimmerFrameLayout.startShimmer();
 
 
@@ -125,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.cvPowerlifting).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,CategoryActivity.class);
+                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
                 intent.putExtra("category", "powerlifting");
                 startActivity(intent);
             }
@@ -134,8 +138,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.cvStrength).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,CategoryActivity.class);
-                intent.putExtra("category","strength");
+                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+                intent.putExtra("category", "strength");
                 startActivity(intent);
             }
         });
@@ -143,8 +147,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.cvStretching).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,CategoryActivity.class);
-                intent.putExtra("category","stretching");
+                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+                intent.putExtra("category", "stretching");
                 startActivity(intent);
             }
         });
@@ -152,9 +156,23 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.cvStrongman).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,CategoryActivity.class);
-                intent.putExtra("category","strongman");
+                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+                intent.putExtra("category", "strongman");
                 startActivity(intent);
+            }
+        });
+
+
+//        firebase messaging
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if (!task.isComplete()) {
+                    Log.e("Error", "Failed to receive");
+                    return;
+                }
+                String token = task.getResult();
+                Log.d("FirebaseToken", token);
             }
         });
 
@@ -171,8 +189,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
         }
         pressedTime = System.currentTimeMillis();
-
-
 
 
     }
