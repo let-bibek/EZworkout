@@ -7,6 +7,8 @@
     android:orientation="horizontal"
     android:paddingHorizontal="20dp">
 
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cvIndividualExercise"
         android:layout_width="match_parent"
@@ -15,28 +17,40 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="2dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="horizontal"
+          >
+          <ImageView
+              android:id="@+id/ivExerciseThumb"
+              android:layout_width="100dp"
+              android:layout_height="100dp"
+              android:src="@drawable/background"
+              />
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="20dp">
 
-            <TextView
-                android:id="@+id/tvMainExerciseListTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Exercise title Exercise title Exercise title"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+              <TextView
+                  android:id="@+id/tvMainExerciseListTitle"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Exercise title Exercise title Exercise title"
+                  android:textColor="@color/black"
+                  android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/tvMainExerciseListCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Exercise category"
-                android:textColor="@color/theme_green"
-                android:textStyle="bold" />
-        </LinearLayout>
+              <TextView
+                  android:id="@+id/tvMainExerciseListCategory"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Exercise category"
+                  android:textColor="@color/theme_green"
+                  android:textStyle="bold" />
+          </LinearLayout>
+      </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

@@ -28,5 +28,8 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
+<!--    Shimmer-->
+    <color name="shimmer">#DDDDDD</color>
+
 
 </resources>

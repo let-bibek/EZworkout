@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.softdrax.ezworkout.ExerciseDetails;
 import com.softdrax.ezworkout.R;
 import com.softdrax.ezworkout.model.ExerciseModel;
@@ -61,6 +64,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
         holder.tvExerciseTitle.setText(exerciseModels.get(position).getName());
         holder.tvExerciseCategory.setText(exerciseModels.get(position).getType());
+        Glide.with(context).load(exerciseModels.get(position).getGifUrl()).into(holder.ivExerciseThumb);
 
         initAnim(holder.itemView,position);
 
@@ -77,11 +81,13 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
         TextView tvExerciseTitle,tvExerciseCategory;
         CardView cardView;
+        ImageView ivExerciseThumb;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvExerciseTitle=itemView.findViewById(R.id.tvMainExerciseListTitle);
             tvExerciseCategory=itemView.findViewById(R.id.tvMainExerciseListCategory);
             cardView=itemView.findViewById(R.id.cvIndividualExercise);
+            ivExerciseThumb=itemView.findViewById(R.id.ivExerciseThumb);
         }
     }
 

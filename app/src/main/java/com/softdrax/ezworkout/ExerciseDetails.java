@@ -7,23 +7,27 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.softdrax.ezworkout.model.ExerciseModel;
 
 import java.util.ArrayList;
 
 public class ExerciseDetails extends AppCompatActivity {
-    String instructions, equipment, muscle, difficulty, type, name,gifExercise;
+    String instructions, equipment, muscle, difficulty, type, name, gifExercise;
     Toolbar toolbar;
     TextView tvExerciseTitle, tvExerciseType, tvExerciseDifficulty, tvExerciseMuscle, tvExerciseEquipment, tvExerciseInstruction;
     ImageView gifView;
+    ShimmerFrameLayout gifViewPlaceholder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,8 @@ public class ExerciseDetails extends AppCompatActivity {
         tvExerciseMuscle = findViewById(R.id.tvExerciseMuscle);
         tvExerciseEquipment = findViewById(R.id.tvExerciseEquipment);
         tvExerciseInstruction = findViewById(R.id.tvExerciseInstruction);
-        gifView=findViewById(R.id.exerciseGif);
+        gifView = findViewById(R.id.exerciseGif);
+        gifViewPlaceholder = findViewById(R.id.gifViewPlaceholder);
 
         //step one
         toolbar = findViewById(R.id.tbApp);
@@ -50,6 +55,10 @@ public class ExerciseDetails extends AppCompatActivity {
             getSupportActionBar().setTitle("");
         }
 
+//        shimmer
+        gifViewPlaceholder = findViewById(R.id.gifViewPlaceholder);
+        gifViewPlaceholder.startShimmer();
+
 
         Intent getIntent = getIntent();
         name = getIntent.getStringExtra("name");
@@ -58,7 +67,7 @@ public class ExerciseDetails extends AppCompatActivity {
         muscle = getIntent.getStringExtra("muscle").toUpperCase();
         equipment = getIntent.getStringExtra("equipment").toUpperCase();
         instructions = getIntent.getStringExtra("instructions");
-        gifExercise=getIntent.getStringExtra("gif");
+        gifExercise = getIntent.getStringExtra("gif");
         showInstruction();
 
     }
@@ -70,11 +79,19 @@ public class ExerciseDetails extends AppCompatActivity {
         tvExerciseDifficulty.setText(difficulty);
         tvExerciseEquipment.setText(equipment);
         tvExerciseInstruction.setText(instructions);
-
         Glide.with(ExerciseDetails.this)
                 .asGif()
                 .load(gifExercise)
                 .into(gifView);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                gifViewPlaceholder.stopShimmer();
+                gifViewPlaceholder.setVisibility(View.GONE);
+                gifView.setVisibility(View.VISIBLE);
+            }
+        }, 5000);
 
     }
 
@@ -90,7 +107,7 @@ public class ExerciseDetails extends AppCompatActivity {
         if (itemId == R.id.menu_item_favourites) {
             Toast.makeText(this, "No favourites", Toast.LENGTH_SHORT).show();
         }
-        if(itemId == R.id.menu_item_myAccount) {
+        if (itemId == R.id.menu_item_myAccount) {
             Toast.makeText(this, "Please login", Toast.LENGTH_SHORT).show();
 
         }

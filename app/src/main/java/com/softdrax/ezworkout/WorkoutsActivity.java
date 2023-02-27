@@ -18,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +37,7 @@ public class WorkoutsActivity extends AppCompatActivity {
     MainActivityAdapter mainActivityAdapter;
     ArrayList<ExerciseModel> exerciseModels;
     ActivityWorkoutsBinding binding;
+    ShimmerFrameLayout workoutsShimmer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,9 @@ public class WorkoutsActivity extends AppCompatActivity {
         binding = ActivityWorkoutsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("");
+//        shimmer
+        workoutsShimmer=findViewById(R.id.workoutsShimmer);
+        workoutsShimmer.startShimmer();
 
         recyclerViewMain = findViewById(R.id.rvMain);
         databaseReference = FirebaseDatabase.getInstance().getReference("exercises");
@@ -60,6 +65,9 @@ public class WorkoutsActivity extends AppCompatActivity {
                     exerciseModels.add(exerciseModel);
                 }
                 mainActivityAdapter.notifyDataSetChanged();
+                workoutsShimmer.stopShimmer();
+                workoutsShimmer.setVisibility(View.GONE);
+                recyclerViewMain.setVisibility(View.VISIBLE);
             }
 
             @Override

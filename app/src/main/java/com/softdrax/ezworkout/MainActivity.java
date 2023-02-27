@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     TextView tvUsername;
     private long pressedTime;
+    ShimmerFrameLayout shimmerFrameLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //        shimmer effect
+        shimmerFrameLayout=findViewById(R.id.rvShimmer);
+        shimmerFrameLayout.startShimmer();
+
 
         recyclerViewMain = findViewById(R.id.rvMain);
 
@@ -93,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
                     exerciseModels.add(exerciseModel);
                 }
                 mainActivityAdapter.notifyDataSetChanged();
+                shimmerFrameLayout.stopShimmer();
+                shimmerFrameLayout.setVisibility(View.GONE);
+                recyclerViewMain.setVisibility(View.VISIBLE);
+
             }
 
             @Override
