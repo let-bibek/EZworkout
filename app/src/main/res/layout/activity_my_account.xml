@@ -7,7 +7,6 @@
     tools:context=".MyAccountActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@color/blue_700"
     >
 
        <LinearLayout
@@ -16,7 +15,7 @@
            android:orientation="vertical"
            android:gravity="center_horizontal"
            android:paddingTop="5dp"
-
+           android:background="@color/blue_700"
            >
            <de.hdodenhof.circleimageview.CircleImageView
                android:id="@+id/ivUserImage"
@@ -75,24 +74,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:orientation="vertical"
-        android:background="@color/white"
-        android:layout_marginHorizontal="40dp"
-        >
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_baseline_receipt_24"
-            style="?android:attr/buttonBarButtonStyle"
-            android:text="Subscription"
-            />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_baseline_receipt_24"
-            style="?android:attr/buttonBarButtonStyle"
-            android:text="Subscription"
-            />
+        android:background="@drawable/small_round_corner">
 
+        <ListView
+            android:id="@+id/lvSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        />
 
     </LinearLayout>
 
