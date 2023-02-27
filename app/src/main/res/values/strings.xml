@@ -28,4 +28,6 @@
     <string name="catStretching">Stretching</string>
     <string name="catStrongman">Strongman</string>
     <string name="catStrength">Strength</string>
+    <string name="menu_item_search">Search</string>
+    <string name="accountType">Free</string>
 </resources>

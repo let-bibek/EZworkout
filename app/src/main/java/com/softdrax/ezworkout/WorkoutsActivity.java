@@ -3,6 +3,9 @@ package com.softdrax.ezworkout;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -11,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,17 +36,15 @@ public class WorkoutsActivity extends AppCompatActivity {
     MainActivityAdapter mainActivityAdapter;
     ArrayList<ExerciseModel> exerciseModels;
     ActivityWorkoutsBinding binding;
-    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityWorkoutsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().setTitle("");
 
         recyclerViewMain = findViewById(R.id.rvMain);
-        searchView = findViewById(R.id.svExercise);
-        searchView.clearFocus();
         databaseReference = FirebaseDatabase.getInstance().getReference("exercises");
         recyclerViewMain.setLayoutManager(new LinearLayoutManager(WorkoutsActivity.this));
 
@@ -67,7 +69,14 @@ public class WorkoutsActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_with_search, menu);
+        MenuItem menuItem = menu.findItem(R.id.menu_item_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Search your favourite exercise...");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -80,8 +89,7 @@ public class WorkoutsActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void filterList(String newText) {
@@ -105,5 +113,11 @@ public class WorkoutsActivity extends AppCompatActivity {
         } else {
             mainActivityAdapter.setFilteredList(filteredText);
         }
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 }

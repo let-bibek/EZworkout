@@ -37,12 +37,14 @@ public class ExerciseDetails extends AppCompatActivity {
         toolbar = findViewById(R.id.tbApp);
         setSupportActionBar(toolbar);
 
+
         //step two
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("");
         }
+
 
         Intent getIntent = getIntent();
         name = getIntent.getStringExtra("name");
@@ -76,11 +78,10 @@ public class ExerciseDetails extends AppCompatActivity {
         int itemId = item.getItemId();
         if (itemId == R.id.menu_item_favourites) {
             Toast.makeText(this, "No favourites", Toast.LENGTH_SHORT).show();
-        } else if (itemId == R.id.menu_item_myAccount) {
+        }
+        if(itemId == R.id.menu_item_myAccount) {
             Toast.makeText(this, "Please login", Toast.LENGTH_SHORT).show();
 
-        } else {
-            startActivity(new Intent(ExerciseDetails.this, WorkoutsActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

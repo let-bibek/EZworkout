@@ -17,7 +17,6 @@
         <activity
             android:name=".CategoryActivity"
             android:exported="false"
-            android:theme="@style/CustomActionBar"
             >
             <meta-data
                 android:name="android.app.lib_name"
@@ -25,7 +24,9 @@
         </activity>
         <activity
             android:name=".MyAccountActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -41,7 +42,9 @@
         <activity
             android:name=".ExerciseDetails"
             android:exported="false"
-            android:theme="@style/CustomActionBar">
+            android:theme="@style/CustomActionBar"
+            android:parentActivityName=".WorkoutsActivity"
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -70,7 +73,7 @@
         <activity
             android:name=".WorkoutsActivity"
             android:exported="false"
-            android:theme="@style/CustomActionBar">
+           >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

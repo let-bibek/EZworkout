@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.EZworkout" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/theme_dark_200</item>
-        <item name="colorPrimaryVariant">@color/theme_dark_500</item>
+        <item name="colorPrimary">@color/blue_700</item>
+        <item name="colorPrimaryVariant">@color/blue_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/theme_green</item>
@@ -23,9 +23,9 @@
 <!--    custom actionbar-->
     <style name="CustomActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!--        status bar color-->
-        <item name="colorPrimary">@color/theme_dark_500</item>
+        <item name="colorPrimary">@color/blue_700</item>
         <!--        action bar color-->
-        <item name="colorPrimaryDark">@color/theme_dark_200</item>
+        <item name="colorPrimaryDark">@color/blue_700</item>
         <!--        textView cursor, progress bar etc color-->
         <item name="colorAccent">@color/blue_700</item>
 

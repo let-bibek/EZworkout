@@ -6,12 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -23,15 +25,20 @@ public class MyAccountActivity extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     Button btnSignOut;
-    ImageView ivUserImage;
-    TextView tvMyAccountUserName,tvUserEmail;
+    TextView tvMyAccountUserName, tvUserEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(MyAccountActivity.this, gso);
-        btnSignOut=findViewById(R.id.btnSignOut);
+        btnSignOut = findViewById(R.id.btnSignOut);
         getSupportActionBar().setTitle("Account");
         btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,13 +47,19 @@ public class MyAccountActivity extends AppCompatActivity {
             }
         });
 
-        GoogleSignInAccount account=GoogleSignIn.getLastSignedInAccount(MyAccountActivity.this);
-        tvMyAccountUserName=findViewById(R.id.tvMyAccountUserName);
-        tvUserEmail=findViewById(R.id.tvUserEmail);
-        if (account!=null){
-            String userName=account.getDisplayName();
-            String userEmail= account.getEmail();
-            Uri imageUri=account.getPhotoUrl();
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(MyAccountActivity.this);
+        tvMyAccountUserName = findViewById(R.id.tvMyAccountUserName);
+        tvUserEmail = findViewById(R.id.tvUserEmail);
+        ImageView ivUserImage = (ImageView) findViewById(R.id.ivUserImage);
+        if (account != null) {
+            String userName = account.getDisplayName();
+            String userEmail = account.getEmail();
+            Uri imageUri = account.getPhotoUrl();
+            if (imageUri!=null){
+                Glide.with(this).load(imageUri).into(ivUserImage);
+            }else{
+                Glide.with(this).load("https://th.bing.com/th/id/OIP.w-L3HP_7QYalYXw7apT2tAHaHx?pid=ImgDet&rs=1").into(ivUserImage);
+            }
             tvMyAccountUserName.setText(userName);
             tvUserEmail.setText(userEmail);
         }
@@ -63,4 +76,11 @@ public class MyAccountActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
