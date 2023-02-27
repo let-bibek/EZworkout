@@ -1,6 +1,7 @@
 package com.softdrax.ezworkout;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -65,9 +66,15 @@ public class WorkoutsActivity extends AppCompatActivity {
                     exerciseModels.add(exerciseModel);
                 }
                 mainActivityAdapter.notifyDataSetChanged();
-                workoutsShimmer.stopShimmer();
-                workoutsShimmer.setVisibility(View.GONE);
-                recyclerViewMain.setVisibility(View.VISIBLE);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        workoutsShimmer.stopShimmer();
+                        workoutsShimmer.setVisibility(View.GONE);
+                        recyclerViewMain.setVisibility(View.VISIBLE);
+                    }
+                },3000);
             }
 
             @Override
@@ -76,6 +83,7 @@ public class WorkoutsActivity extends AppCompatActivity {
                 System.out.println("error is" + error);
             }
         });
+
 
     }
 

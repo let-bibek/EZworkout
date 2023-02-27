@@ -80,7 +80,6 @@ public class ExerciseDetails extends AppCompatActivity {
         tvExerciseEquipment.setText(equipment);
         tvExerciseInstruction.setText(instructions);
         Glide.with(ExerciseDetails.this)
-                .asGif()
                 .load(gifExercise)
                 .into(gifView);
 
@@ -108,7 +107,7 @@ public class ExerciseDetails extends AppCompatActivity {
             Toast.makeText(this, "No favourites", Toast.LENGTH_SHORT).show();
         }
         if (itemId == R.id.menu_item_myAccount) {
-            Toast.makeText(this, "Please login", Toast.LENGTH_SHORT).show();
+           startActivity(new Intent(ExerciseDetails.this,MyAccountActivity.class));
 
         }
 

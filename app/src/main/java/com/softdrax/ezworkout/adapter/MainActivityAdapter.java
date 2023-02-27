@@ -63,7 +63,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         });
 
         holder.tvExerciseTitle.setText(exerciseModels.get(position).getName());
-        holder.tvExerciseCategory.setText(exerciseModels.get(position).getType());
+        holder.tvExerciseCategory.setText(exerciseModels.get(position).getMuscle().toUpperCase());
         Glide.with(context).load(exerciseModels.get(position).getGifUrl()).into(holder.ivExerciseThumb);
 
         initAnim(holder.itemView,position);
