@@ -53,6 +53,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
                 intent.putExtra("muscle",exerciseModels.get(position).getMuscle());
                 intent.putExtra("equipment",exerciseModels.get(position).getEquipment());
                 intent.putExtra("instructions",exerciseModels.get(position).getInstructions());
+                intent.putExtra("gif",exerciseModels.get(position).getGifUrl());
 
                 context.startActivity(intent);
             }

@@ -7,6 +7,15 @@ public class ExerciseModel {
     private String muscle;
     private String name;
     private String type;
+    private String gifUrl;
+
+    public String getGifUrl() {
+        return gifUrl;
+    }
+
+    public void setGifUrl(String gifUrl) {
+        this.gifUrl = gifUrl;
+    }
 
     public String getDifficulty() {
         return difficulty;

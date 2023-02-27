@@ -4,13 +4,9 @@
     android:icon="@drawable/workout"
     android:title="@string/menu_item_workouts"
     />
-    <item android:id="@+id/menu_item_diet"
-        android:icon="@drawable/diet_plan"
-        android:title="@string/menu_item_diets"
-        />
-    <item android:id="@+id/menu_item_workout_routine"
+    <item android:id="@+id/menu_item_plans"
         android:icon="@drawable/workout_routine"
-        android:title="@string/menu_item_workout_routine"
+        android:title="@string/menu_item_workout_plan"
         />
     <item android:id="@+id/menu_item_advice"
         android:icon="@drawable/user_profile"

@@ -5,21 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.softdrax.ezworkout.model.ExerciseModel;
 
 import java.util.ArrayList;
 
 public class ExerciseDetails extends AppCompatActivity {
-    String instructions, equipment, muscle, difficulty, type, name;
+    String instructions, equipment, muscle, difficulty, type, name,gifExercise;
     Toolbar toolbar;
     TextView tvExerciseTitle, tvExerciseType, tvExerciseDifficulty, tvExerciseMuscle, tvExerciseEquipment, tvExerciseInstruction;
+    ImageView gifView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,7 @@ public class ExerciseDetails extends AppCompatActivity {
         tvExerciseMuscle = findViewById(R.id.tvExerciseMuscle);
         tvExerciseEquipment = findViewById(R.id.tvExerciseEquipment);
         tvExerciseInstruction = findViewById(R.id.tvExerciseInstruction);
+        gifView=findViewById(R.id.exerciseGif);
 
         //step one
         toolbar = findViewById(R.id.tbApp);
@@ -53,6 +58,7 @@ public class ExerciseDetails extends AppCompatActivity {
         muscle = getIntent.getStringExtra("muscle").toUpperCase();
         equipment = getIntent.getStringExtra("equipment").toUpperCase();
         instructions = getIntent.getStringExtra("instructions");
+        gifExercise=getIntent.getStringExtra("gif");
         showInstruction();
 
     }
@@ -64,6 +70,11 @@ public class ExerciseDetails extends AppCompatActivity {
         tvExerciseDifficulty.setText(difficulty);
         tvExerciseEquipment.setText(equipment);
         tvExerciseInstruction.setText(instructions);
+
+        Glide.with(ExerciseDetails.this)
+                .asGif()
+                .load(gifExercise)
+                .into(gifView);
 
     }
 

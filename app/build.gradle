@@ -27,7 +27,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 }
@@ -68,5 +68,8 @@ dependencies {
 
 //    google sign in
     implementation 'com.google.android.gms:play-services-auth:20.4.1'
+
+    //gif library
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
 
 }

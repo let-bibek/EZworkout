@@ -30,4 +30,6 @@
     <string name="catStrength">Strength</string>
     <string name="menu_item_search">Search</string>
     <string name="accountType">Free</string>
+    <string name="menu_item_workout_plan">Workout plans</string>
+    <string name="benefits">Benefits</string>
 </resources>

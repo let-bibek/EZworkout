@@ -2,12 +2,10 @@ package com.softdrax.ezworkout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -42,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     TextView tvUsername;
     private long pressedTime;
-    CardView cvPowerlifting,cvStretching,cvStrongman,cvStrength;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,18 +55,13 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, WorkoutsActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
-                } else if (id == R.id.menu_item_diet) {
-                    startActivity(new Intent(MainActivity.this, DietsActivity.class));
+                } else if (id == R.id.menu_item_plans) {
+                    startActivity(new Intent(MainActivity.this, WorkoutPlansActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
 
                 } else if (id == R.id.menu_item_advice) {
                     startActivity(new Intent(MainActivity.this, MyAccountActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-
-                } else if (id == R.id.menu_item_workout_routine) {
-                    startActivity(new Intent(MainActivity.this, RoutineActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
 
@@ -156,9 +147,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
 
     }
 
