@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BMICalculatorActivity extends AppCompatActivity {
     private int weight, heightFt, heightIn;
@@ -39,17 +42,49 @@ public class BMICalculatorActivity extends AppCompatActivity {
                 double totalHeightM=heightCm/100;
                 double BMI=weight/(Math.pow(totalHeightM,2));
                 if(BMI>25&&BMI<30){
-                    tvRes.setText("You are over weight");
+                    Toast toast = new Toast(getApplicationContext());
+                    View getToastView = getLayoutInflater()
+                            .inflate(R.layout.simple_toast, (ViewGroup) findViewById(R.id.toastViewGroup));
+                    toast.setView(getToastView);
+                    TextView tvMessage = getToastView.findViewById(R.id.simpleToast);
+                    tvMessage.setText(R.string.over_weight_msg);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, -100);
+                    toast.show();
                 }
                 else if(BMI<18.5){
-                    tvRes.setText("You are under weight");
+                    Toast toast = new Toast(getApplicationContext());
+                    View getToastView = getLayoutInflater()
+                            .inflate(R.layout.simple_toast, (ViewGroup) findViewById(R.id.toastViewGroup));
+                    toast.setView(getToastView);
+                    TextView tvMessage = getToastView.findViewById(R.id.simpleToast);
+                    tvMessage.setText(R.string.under_weight_msg);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, -100);
+                    toast.show();
 
                 }
                 else if(BMI>30){
-                    tvRes.setText("You seem to be healthy");
+                    Toast toast = new Toast(getApplicationContext());
+                    View getToastView = getLayoutInflater()
+                            .inflate(R.layout.simple_toast, (ViewGroup) findViewById(R.id.toastViewGroup));
+                    toast.setView(getToastView);
+                    TextView tvMessage = getToastView.findViewById(R.id.simpleToast);
+                    tvMessage.setText(R.string.normal_weight_msg);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, -100);
+                    toast.show();
 
                 }else{
-
+                    Toast toast = new Toast(getApplicationContext());
+                    View getToastView = getLayoutInflater()
+                            .inflate(R.layout.simple_toast, (ViewGroup) findViewById(R.id.toastViewGroup));
+                    toast.setView(getToastView);
+                    TextView tvMessage = getToastView.findViewById(R.id.simpleToast);
+                    tvMessage.setText(R.string.obesity_weight_msg);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, -100);
+                    toast.show();
                 }
             }
         });

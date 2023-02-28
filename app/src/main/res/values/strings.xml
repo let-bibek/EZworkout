@@ -39,4 +39,8 @@
     <string name="enterHtIn">Enter height in inch</string>
     <string name="Calculate">Calculate</string>
     <string name="enterAge">Age (years)</string>
+    <string name="over_weight_msg">You are overweight please do regular workouts</string>
+    <string name="under_weight_msg">You are underweight please maintain your diets</string>
+    <string name="normal_weight_msg">Congratulations!! Your weight is normal</string>
+    <string name="obesity_weight_msg">You are too unhealty. Consider doing regular workouts</string>
 </resources>
