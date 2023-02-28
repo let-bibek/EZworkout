@@ -11,16 +11,26 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!--        enabling transition-->
+        <item name="android:windowActivityTransitions">true</item>
+        <!--        setting transition-->
+        <item name="android:windowEnterTransition">@transition/trans_anim</item>
+        <item name="android:windowExitTransition">@transition/trans_anim</item>
     </style>
 
 
-<!--    no actionbar-->
+    <!--    no actionbar-->
     <style name="Theme.EZworkout.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <!--        enabling transition-->
+        <item name="android:windowActivityTransitions">true</item>
+        <!--        setting transition-->
+        <item name="android:windowEnterTransition">@transition/trans_anim</item>
+        <item name="android:windowExitTransition">@transition/trans_anim</item>
     </style>
 
-<!--    custom actionbar-->
+    <!--    custom actionbar-->
     <style name="CustomActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!--        status bar color-->
         <item name="colorPrimary">@color/blue_700</item>
@@ -30,6 +40,11 @@
         <item name="colorAccent">@color/blue_700</item>
 
         <item name="colorControlNormal">@color/white</item>
+        <!--        enabling transition-->
+        <item name="android:windowActivityTransitions">true</item>
+        <!--        setting transition-->
+        <item name="android:windowEnterTransition">@transition/trans_anim</item>
+        <item name="android:windowExitTransition">@transition/trans_anim</item>
     </style>
 
 </resources>

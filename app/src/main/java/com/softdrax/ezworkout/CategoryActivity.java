@@ -21,20 +21,21 @@ import com.softdrax.ezworkout.model.ExerciseModel;
 import java.util.ArrayList;
 
 public class CategoryActivity extends AppCompatActivity {
-String categoryName;
-TextView tvCategoryName;
+    String categoryName;
+    TextView tvCategoryName;
     RecyclerView recyclerViewMain;
     DatabaseReference databaseReference;
     MainActivityAdapter mainActivityAdapter;
     ArrayList<ExerciseModel> exerciseModels;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
-        Intent getIntent=getIntent();
-        categoryName=getIntent.getStringExtra("category").toUpperCase();
-        tvCategoryName=findViewById(R.id.tvCategoryName);
+        Intent getIntent = getIntent();
+        categoryName = getIntent.getStringExtra("category").toUpperCase();
+        tvCategoryName = findViewById(R.id.tvCategoryName);
         tvCategoryName.setText(categoryName);
 
         recyclerViewMain = findViewById(R.id.rvMain);

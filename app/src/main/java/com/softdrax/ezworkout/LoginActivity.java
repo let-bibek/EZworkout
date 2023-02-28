@@ -3,6 +3,7 @@ package com.softdrax.ezworkout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -66,8 +67,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void navigateToMainActivity() {
+        Bundle b = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this).toBundle();
         Intent iMain = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(iMain);
+        startActivity(iMain, b);
 
     }
 }

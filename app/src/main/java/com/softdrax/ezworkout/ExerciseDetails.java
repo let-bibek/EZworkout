@@ -90,7 +90,7 @@ public class ExerciseDetails extends AppCompatActivity {
                 gifViewPlaceholder.setVisibility(View.GONE);
                 gifView.setVisibility(View.VISIBLE);
             }
-        }, 5000);
+        }, 3000);
 
     }
 
@@ -107,7 +107,7 @@ public class ExerciseDetails extends AppCompatActivity {
             Toast.makeText(this, "No favourites", Toast.LENGTH_SHORT).show();
         }
         if (itemId == R.id.menu_item_myAccount) {
-           startActivity(new Intent(ExerciseDetails.this,MyAccountActivity.class));
+            startActivity(new Intent(ExerciseDetails.this, MyAccountActivity.class));
 
         }
 

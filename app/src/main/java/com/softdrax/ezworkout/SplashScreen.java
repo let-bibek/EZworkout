@@ -3,6 +3,7 @@ package com.softdrax.ezworkout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,7 +20,8 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 Intent iHome = new Intent(SplashScreen.this, LoginActivity.class);
-                startActivity(iHome);
+                Bundle b= ActivityOptions.makeSceneTransitionAnimation(SplashScreen.this).toBundle();
+                startActivity(iHome,b);
                 finish();
             }
         }, 2000);

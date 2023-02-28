@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,32 +54,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 //        activity switching
-        binding.bnvBottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.menu_item_workouts) {
-                    startActivity(new Intent(MainActivity.this, WorkoutsActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
-                } else if (id == R.id.menu_item_plans) {
-                    startActivity(new Intent(MainActivity.this, WorkoutPlansActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
+        binding.bnvBottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.menu_item_workouts) {
+                startActivity(new Intent(MainActivity.this, WorkoutsActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
+            } else if (id == R.id.menu_item_plans) {
+                startActivity(new Intent(MainActivity.this, WorkoutPlansActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
 
-                } else if (id == R.id.menu_item_advice) {
-                    startActivity(new Intent(MainActivity.this, MyAccountActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
+            } else if (id == R.id.menu_item_advice) {
+                startActivity(new Intent(MainActivity.this, MyAccountActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
 
-                } else if (id == R.id.menu_item_other_services) {
-                    startActivity(new Intent(MainActivity.this, OthersActivity.class));
-                    overridePendingTransition(0, 0);
-                    return true;
+            } else if (id == R.id.menu_item_other_services) {
+                startActivity(new Intent(MainActivity.this, OthersActivity.class));
+                overridePendingTransition(0, 0);
+                return true;
 
-                }
-                return false;
             }
+            return false;
         });
 
         //        shimmer effect
@@ -126,54 +124,42 @@ public class MainActivity extends AppCompatActivity {
             tvUsername.setText(userName);
         }
 
-        findViewById(R.id.cvPowerlifting).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
-                intent.putExtra("category", "powerlifting");
-                startActivity(intent);
-            }
+        findViewById(R.id.cvPowerlifting).setOnClickListener(v -> {
+            Bundle b = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
+            Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+            intent.putExtra("category", "powerlifting");
+            startActivity(intent, b);
         });
 
-        findViewById(R.id.cvStrength).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
-                intent.putExtra("category", "strength");
-                startActivity(intent);
-            }
+        findViewById(R.id.cvStrength).setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+            intent.putExtra("category", "strength");
+            startActivity(intent);
         });
 
-        findViewById(R.id.cvStretching).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
-                intent.putExtra("category", "stretching");
-                startActivity(intent);
-            }
+        findViewById(R.id.cvStretching).setOnClickListener(v -> {
+            Bundle b = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
+            Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+            intent.putExtra("category", "stretching");
+            startActivity(intent, b);
         });
 
-        findViewById(R.id.cvStrongman).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
-                intent.putExtra("category", "strongman");
-                startActivity(intent);
-            }
+        findViewById(R.id.cvStrongman).setOnClickListener(v -> {
+            Bundle b = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
+            Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+            intent.putExtra("category", "strongman");
+            startActivity(intent, b);
         });
 
 
 //        firebase messaging
-        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
-            @Override
-            public void onComplete(@NonNull Task<String> task) {
-                if (!task.isComplete()) {
-                    Log.e("Error", "Failed to receive");
-                    return;
-                }
-                String token = task.getResult();
-                Log.d("FirebaseToken", token);
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+            if (!task.isComplete()) {
+                Log.e("Error", "Failed to receive");
+                return;
             }
+            String token = task.getResult();
+            Log.d("FirebaseToken", token);
         });
 
     }

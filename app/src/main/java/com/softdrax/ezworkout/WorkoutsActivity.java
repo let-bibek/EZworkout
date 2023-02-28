@@ -46,7 +46,7 @@ public class WorkoutsActivity extends AppCompatActivity {
         binding = ActivityWorkoutsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("");
+            getSupportActionBar().setTitle("Workouts");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 //        shimmer
@@ -70,14 +70,11 @@ public class WorkoutsActivity extends AppCompatActivity {
                 }
                 mainActivityAdapter.notifyDataSetChanged();
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        workoutsShimmer.stopShimmer();
-                        workoutsShimmer.setVisibility(View.GONE);
-                        recyclerViewMain.setVisibility(View.VISIBLE);
-                    }
-                }, 3000);
+                new Handler().postDelayed(() -> {
+                    workoutsShimmer.stopShimmer();
+                    workoutsShimmer.setVisibility(View.GONE);
+                    recyclerViewMain.setVisibility(View.VISIBLE);
+                }, 2000);
             }
 
             @Override
