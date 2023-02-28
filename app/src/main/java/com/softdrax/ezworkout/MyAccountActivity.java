@@ -3,6 +3,7 @@ package com.softdrax.ezworkout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,8 +13,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
@@ -32,8 +35,8 @@ public class MyAccountActivity extends AppCompatActivity {
     Button btnSignOut;
     TextView tvMyAccountUserName, tvUserEmail;
     ListView lvSettings;
-    String[] settings={"Subscribe","Message us","Terms and conditions","Check for updates","About us"};
-    int[] settingsIcons={R.drawable.ic_baseline_receipt_24,R.drawable.ic_baseline_message_24,R.drawable.ic_baseline_book_24,R.drawable.ic_baseline_system_update_24,R.drawable.ic_baseline_info_24};
+    String[] settings = {"Subscribe", "Message us", "Terms and conditions", "Check for updates", "About us"};
+    int[] settingsIcons = {R.drawable.ic_baseline_receipt_24, R.drawable.ic_baseline_message_24, R.drawable.ic_baseline_book_24, R.drawable.ic_baseline_system_update_24, R.drawable.ic_baseline_info_24};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +48,10 @@ public class MyAccountActivity extends AppCompatActivity {
         }
 
 //        setting
-        lvSettings=findViewById(R.id.lvSettings);
-        AccountSettingAdapter accountSettingAdapter=new AccountSettingAdapter();
+        lvSettings = findViewById(R.id.lvSettings);
+        AccountSettingAdapter accountSettingAdapter = new AccountSettingAdapter();
 
         lvSettings.setAdapter(accountSettingAdapter);
-
-
 
 
 //        google authentication
@@ -85,7 +86,8 @@ public class MyAccountActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 finish();
-                startActivity(new Intent(MyAccountActivity.this, LoginActivity.class));
+                Bundle b = ActivityOptions.makeSceneTransitionAnimation(MyAccountActivity.this).toBundle();
+                startActivity(new Intent(MyAccountActivity.this, LoginActivity.class), b);
             }
         });
     }
@@ -114,11 +116,17 @@ public class MyAccountActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view=getLayoutInflater().inflate(R.layout.settings_list,null);
-            TextView textView=view.findViewById(R.id.tvSetting);
-            ImageView imageView=view.findViewById(R.id.ivSetting);
+            View view = getLayoutInflater().inflate(R.layout.settings_list, null);
+            TextView textView = view.findViewById(R.id.tvSetting);
+            ImageView imageView = view.findViewById(R.id.ivSetting);
+            LinearLayout navigateTo = view.findViewById(R.id.navigateTo);
             textView.setText(settings[position]);
             imageView.setImageResource(settingsIcons[position]);
+            if (position == 4) {
+                Bundle b = ActivityOptions.makeSceneTransitionAnimation(MyAccountActivity.this).toBundle();
+                navigateTo.setOnClickListener(v -> startActivity(new Intent(MyAccountActivity.this, AboutUsActivity.class), b));
+            }
+
             return view;
         }
     }
