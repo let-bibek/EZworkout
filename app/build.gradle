@@ -41,34 +41,20 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-
 //    round image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
 //    Library for Network Calls
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-
-    //Room database
-    def room_version = "2.5.0"
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-
-
     //Image Loading Library
     implementation 'com.github.bumptech.glide:glide:4.14.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
-
-
     // Import the Firebase
     implementation platform('com.google.firebase:firebase-bom:31.2.2')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-messaging:23.1.1'
-
 //    google sign in
     implementation 'com.google.android.gms:play-services-auth:20.4.1'
-
 //    shimmer effect
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }

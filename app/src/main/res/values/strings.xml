@@ -43,4 +43,7 @@
     <string name="under_weight_msg">You are underweight please maintain your diets</string>
     <string name="normal_weight_msg">Congratulations!! Your weight is normal</string>
     <string name="obesity_weight_msg">You are too unhealty. Consider doing regular workouts</string>
+    <string name="calculator">BMI Calculator</string>
+    <string name="reminder">Reminder</string>
+    <string name="myNotes">My notes</string>
 </resources>

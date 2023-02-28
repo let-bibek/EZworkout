@@ -23,8 +23,11 @@ public class BMICalculatorActivity extends AppCompatActivity {
         EditText etWeight,etHeightFt,etHeightIn;
         Button btnCalc;
 
-        if(getSupportActionBar()!=null)
+        if(getSupportActionBar()!=null){
             getSupportActionBar().setTitle("BMI calculator");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        }
 
         etWeight=findViewById(R.id.etWeight);
         etHeightFt=findViewById(R.id.etHeightFt);
@@ -49,7 +52,7 @@ public class BMICalculatorActivity extends AppCompatActivity {
                     TextView tvMessage = getToastView.findViewById(R.id.simpleToast);
                     tvMessage.setText(R.string.over_weight_msg);
                     toast.setDuration(Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, -100);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP, 0, -100);
                     toast.show();
                 }
                 else if(BMI<18.5){
@@ -60,7 +63,7 @@ public class BMICalculatorActivity extends AppCompatActivity {
                     TextView tvMessage = getToastView.findViewById(R.id.simpleToast);
                     tvMessage.setText(R.string.under_weight_msg);
                     toast.setDuration(Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, -100);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP, 0, -100);
                     toast.show();
 
                 }
@@ -72,7 +75,7 @@ public class BMICalculatorActivity extends AppCompatActivity {
                     TextView tvMessage = getToastView.findViewById(R.id.simpleToast);
                     tvMessage.setText(R.string.normal_weight_msg);
                     toast.setDuration(Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, -100);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP, 0, -100);
                     toast.show();
 
                 }else{
@@ -83,7 +86,7 @@ public class BMICalculatorActivity extends AppCompatActivity {
                     TextView tvMessage = getToastView.findViewById(R.id.simpleToast);
                     tvMessage.setText(R.string.obesity_weight_msg);
                     toast.setDuration(Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, -100);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP, 0, -100);
                     toast.show();
                 }
             }
