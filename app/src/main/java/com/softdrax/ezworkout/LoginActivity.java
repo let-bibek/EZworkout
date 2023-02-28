@@ -70,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         Bundle b = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this).toBundle();
         Intent iMain = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(iMain, b);
+        finish();
 
     }
 }

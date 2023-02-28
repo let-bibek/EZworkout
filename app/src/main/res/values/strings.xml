@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">EZworkout</string>
     <string name="brand_logo">brand logo</string>
-    <string name="developerSignature">Bibek</string>
+    <string name="developerSignature">Ezworkouts by Bibek</string>
     <string name="menu_item_workouts">Workouts</string>
     <string name="menu_item_diets">Diets</string>
     <string name="menu_item_advice">Advice</string>

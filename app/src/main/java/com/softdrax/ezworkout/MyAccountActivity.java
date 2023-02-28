@@ -58,12 +58,7 @@ public class MyAccountActivity extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(MyAccountActivity.this, gso);
         btnSignOut = findViewById(R.id.btnSignOut);
         getSupportActionBar().setTitle("Account");
-        btnSignOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signOutUser();
-            }
-        });
+        btnSignOut.setOnClickListener(v -> signOutUser());
 
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(MyAccountActivity.this);
         tvMyAccountUserName = findViewById(R.id.tvMyAccountUserName);
