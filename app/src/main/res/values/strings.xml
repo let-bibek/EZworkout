@@ -34,8 +34,9 @@
     <string name="benefits">Benefits</string>
     <string name="planATitle">"6-Week Advanced Workout Plan To Build Muscle "</string>
     <string name="result">Result</string>
-    <string name="enterWt">Enter weight</string>
-    <string name="enterHt">Enter height</string>
+    <string name="enterWt">Enter weight (kg)</string>
+    <string name="enterHt">Enter height (cm)</string>
     <string name="enterHtIn">Enter height in inch</string>
     <string name="Calculate">Calculate</string>
+    <string name="enterAge">Age (years)</string>
 </resources>

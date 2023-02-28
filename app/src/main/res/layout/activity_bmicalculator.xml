@@ -1,58 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fillViewport="true">
 
-    <LinearLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/lLout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".BMICalculator"
         android:gravity="center"
         android:orientation="vertical"
-        android:id="@+id/lLout"
-        >
+        tools:context=".BMICalculator">
+
         <EditText
             android:id="@+id/etWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="14"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:autofillHints="Expense Title"
+            android:background="@drawable/round_text_field"
+            android:ems="15"
             android:hint="@string/enterWt"
             android:inputType="number"
-            android:background="@drawable/round_text_field"
-            />
+            android:minHeight="48dp"
+            android:paddingHorizontal="10dp"
+            android:textColorHint="#606060"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/etHeightFt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="14"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:autofillHints="Expense Title"
+            android:background="@drawable/round_text_field"
+            android:ems="15"
             android:hint="@string/enterHt"
             android:inputType="number"
-             />
+            android:minHeight="48dp"
+            android:paddingHorizontal="10dp"
+            android:textColorHint="#606060"
+            android:textSize="18sp"
+            />
 
         <EditText
             android:id="@+id/etHeightIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="14"
-            android:hint="@string/enterHtIn"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:autofillHints="Expense Title"
+            android:background="@drawable/round_text_field"
+            android:ems="15"
+            android:hint="@string/enterAge"
             android:inputType="number"
-             />
+            android:minHeight="48dp"
+            android:paddingHorizontal="10dp"
+            android:textColorHint="#606060"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/btnCalculate"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="@string/Calculate"
-            android:backgroundTint="@color/black"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            />
-
+            android:textColor="@color/blue_700" />
     </LinearLayout>
 </ScrollView>
