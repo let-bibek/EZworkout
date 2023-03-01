@@ -1,6 +1,6 @@
 <h2 align="center"><u>https://github.com/let-bibek/EZworkout</u></h2>
 
-!["Sweat is just fat crying." This playful and lighthearted motto adds some humor to your workout repository and encourages users to keep pushing through their workouts even when they get tough.](https://github.com/let-bibek/Project-Assits/blob/main/Your%20paragraph%20text.png)
+!["Sweat is just fat crying."](https://github.com/let-bibek/Project-Assits/blob/main/Your%20paragraph%20text.png)
 <h4 align="center"> "Sweat is just fat crying." This playful and lighthearted motto adds some humor to your workout repository and encourages users to keep pushing through their workouts even when they get tough. </h4>
 
 <p align="center">
@@ -43,5 +43,5 @@ This is an Android application that helps users plan and track their workouts. T
 ### [+] Find me on 
 <a href="mailto:bibek@khalte.com" target="_blank"><img src="https://img.shields.io/badge/Email-bibek@khalte.com-blue?style=for-the-badge&logo=gmail"></a>
 
-<a href="https://m.me/let-bibek" target="_blank"><img src="https://img.shields.io/badge/Messenger-let-bibek-blue?style=for-the-badge&logo=messenger"></a>
+<a href="https://m.me/let_bibek" target="_blank"><img src="https://img.shields.io/badge/Messenger-let_bibek-blue?style=for-the-badge&logo=messenger"></a>
 
