@@ -1,7 +1,7 @@
 <h2 align="center"><u>https://github.com/let-bibek/EZworkout</u></h2>
 
 !["Sweat is just fat crying."](https://github.com/let-bibek/Project-Assits/blob/main/Your%20paragraph%20text.png)
-<h4 align="center"> "Sweat is just fat crying." This playful and lighthearted motto adds some humor to your workout repository and encourages users to keep pushing through their workouts even when they get tough. </h4>
+<h4 align="center"> "Sweat is just fat crying." </h4>
 
 <p align="center">
     <img src="https://img.shields.io/github/stars/let-bibek/EZworkout?style=for-the-badge&color=orange">
